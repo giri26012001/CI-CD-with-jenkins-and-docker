@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    docker.build('myapp:${env.BUILD_NUMBER}')
+                    docker.build("myapp:${env.BUILD_NUMBER}")
                 }
             }
         }
