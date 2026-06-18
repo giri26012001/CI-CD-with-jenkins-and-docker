@@ -20,15 +20,15 @@ pipeline{
         }
         stage ('build') {
             steps {
-                sh "docker-build -t ${DOCKER_HUB_USERNAME}/${IMAGE_NAME}:${IMAGE_TAG} ."
-                sh "docker tag ${DOCKER_HUB_USERNAME}/${IMAGE_NAME}:${DOCKER_HUB_USERNAME}/${IMAGE_NAME}:latest"
+                sh "docker build -t ${DOCKER_HUB_USERNAME}:${IMAGE_TAG} ."
+                sh "docker tag ${DOCKER_HUB_USERNAME}:${IMAGE_TAG}:${DOCKER_HUB_USERNAME}:latest"
             }
         }
         stage ('push') {
             steps {
-                sh "echo \$DOCKER_HUB_USER_PSW | docker login -u \$DOCKER_HUB_USER_USR --password-stdin"
-                sh "docker push ${DOCKER_HUB_USER}/${IMAGE_NAME}:${IMAGE_TAG}"
-                sh "docker push ${DOCKER_HUB_USER}/${IMAGE_NAME}:latest"
+                sh 'echo "DOCKER_HUB_USERNAME_PSW" | docker login -u "DOCKER_HUB_USERNAME_USR" --password-stdin'
+                sh 'docker push ${DOCKER_HUB_USERNAME}:${IMAGE_TAG}'
+                sh 'docker push ${DOCKER_HUB_USERNAME}:latest'
             } 
         }
         stage ('deploy') {
