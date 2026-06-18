@@ -23,7 +23,7 @@ pipeline{
         }
         stage ('build') {
             steps {
-                sh 'docker build -t \${DOCKER_HUB_USERNAME_USR}/${IMAGE_NAME}:${IMAGE_TAG} .'
+                sh 'docker build --no-cache -t \${DOCKER_HUB_USERNAME_USR}/${IMAGE_NAME}:${IMAGE_TAG} .'
                 sh 'docker tag \${DOCKER_HUB_USERNAME_USR}/${IMAGE_NAME}:${IMAGE_TAG} \${DOCKER_HUB_USERNAME_USR}/${IMAGE_NAME}:latest'
             }
         }
