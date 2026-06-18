@@ -40,8 +40,7 @@ pipeline{
                 sh "docker stop ${CONTAINER_NAME} || true"
                 sh "docker rm ${CONTAINER_NAME} || true"
                 sh "docker pull ${DOCKER_HUB_USERNAME_USR}/${IMAGE_NAME}:latest"
-                sh "docker run -d --name ${CONTAINER_NAME} -p 3000:3000 ${DOCKER_HUB_USERNAME_USR}/${IMAGE_NAME}:latest"
-            }
+                sh "docker run -d --name ${CONTAINER_NAME} --network host ${DOCKER_HUB_USERNAME_USR}/${IMAGE_NAME}:latest"            }
         }
     }
 }
