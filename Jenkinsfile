@@ -9,7 +9,7 @@ pipeline{
     stages{
         stage ('clone') {
             steps {
-                git clone https://github.com/giri26012001/CI-CD-with-jenkins-and-docker.git
+                git clone 'https://github.com/giri26012001/CI-CD-with-jenkins-and-docker.git'
             }
         }
         stage ('unit tests') {
