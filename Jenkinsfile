@@ -1,8 +1,8 @@
 pipeline{
     agent any
-    tools {
-        dockerTool 'docker'
-    }
+    // tools {
+    //     dockerTool 'docker'
+    // }
     environment {
         DOCKER_HUB_USERNAME = credentials('docker-hub-credentials')
         IMAGE_NAME = 'my-app'
