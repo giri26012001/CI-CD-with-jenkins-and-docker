@@ -32,5 +32,14 @@ pipeline{
                 }
             } 
         }
+        stage ('deploy') {
+            steps {
+                echo 'deploying application'
+                sh "docker stop ${COTAINER_NAME} || true"
+                sh "docker rm ${CONTAINER_NAME} || true"
+                sh "docker pull ${DOCKER_HUB_USERNAME}/${IMAGE_NAME}:latest"
+                sh "docker run -d --name ${CONTAINER_NAME} -p 3000:3000 ${DOCKER_HUB_USERNAME}/${IMAGE_NAME}:latest"
+            }
+        }
     }
 }
