@@ -1,7 +1,7 @@
 pipeline{
     agent any
     environment {
-        DOCKER_HUB_USERNAME = credentials('docker-hub-credentials-username')
+        DOCKER_HUB_USERNAME = credentials('docker-hub-credentials')
         IMAGE_NAME = 'my-app'
         IMAGE_TAG = "${BUILD_NUMBER}"
         CONTAINER_NAME = 'my-running-app'
@@ -26,11 +26,9 @@ pipeline{
         }
         stage ('push') {
             steps {
-                withCredentials([usernamePassword(credentialsID: 'docker-hub-credentials', passwordVariable: 'DOCKER_PASS', usernameVariable: 'DOCKER_USER')]) {
-                    sh "echo \$DOCKER_PASS | docker login -u \$DOCKER_USER --password-stdin"
-                    sh "docker push ${DOCKER_HUB_USERNAME}/${IMAGE_NAME}:${IMAGE_TAG}"
-                    sh "docker push ${DOCKER_HUB_USERNAME}/${IMAGE_NAME}:latest"
-                }
+                sh "echo \$DOCKER_HUB_USER_PSW | docker login -u \$DOCKER_HUB_USER_USR --password-stdin"
+                sh "docker push ${DOCKER_HUB_USER}/${IMAGE_NAME}:${IMAGE_TAG}"
+                sh "docker push ${DOCKER_HUB_USER}/${IMAGE_NAME}:latest"
             } 
         }
         stage ('deploy') {
