@@ -1,7 +1,7 @@
 pipeline{
     agent any
     tools {
-        docker 'docker'
+        dockerTool 'docker'
     }
     environment {
         DOCKER_HUB_USERNAME = credentials('docker-hub-credentials')
