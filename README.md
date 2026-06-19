@@ -2,7 +2,7 @@
 
 This repository contains a fully automated Continuous Integration and Continuous Deployment (CI/CD) pipeline for a Node.js web application. The project demonstrates how to automatically pull code changes from GitHub, build a containerized Docker image with zero caching dependencies, push images safely, and execute a live network deployment using an automation server.
 
-## 🏗️ Architecture & Workflow
+## Architecture & Workflow
 
 1. **Code Commit:** Developer pushes code changes (`server.js`, `package.json`, etc.) to the GitHub repository.
 2. **Jenkins Automation:** Jenkins detects changes, references the declarative `Jenkinsfile`, and provisions a isolated workspace environment.
@@ -15,7 +15,7 @@ This repository contains a fully automated Continuous Integration and Continuous
 
 ---
 
-## 🛠️ Tech Stack & Infrastructure
+## Tech Stack & Infrastructure
 
 * **Application Framework:** Node.js, Express.js
 * **Automation Server:** Jenkins (Declarative Pipeline Syntax)
@@ -24,7 +24,7 @@ This repository contains a fully automated Continuous Integration and Continuous
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```text
 ├── Dockerfile          # Multi-stage optimized instructions for packaging Node.js
