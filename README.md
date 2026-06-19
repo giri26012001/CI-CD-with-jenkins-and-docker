@@ -21,13 +21,3 @@ This repository contains a fully automated Continuous Integration and Continuous
 * **Automation Server:** Jenkins (Declarative Pipeline Syntax)
 * **Container Environment:** Docker, Docker Engine (WSL2 / Linux host environments)
 * **Image Registry:** Docker Hub
-
----
-
-## Repository Structure
-
-```text
-├── Dockerfile          # Multi-stage optimized instructions for packaging Node.js
-├── Jenkinsfile         # Complete Infrastructure-as-Code pipeline configuration
-├── package.json        # Node.js application scripts and dependency locks
-└── server.js           # Core Express.js web server serving the active landing page
